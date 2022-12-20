@@ -9,13 +9,13 @@
     </tr>
 
     <tr>
-      <th><%= f.label :start_time ,"開始日" %></th>
-      <td><%= f.date_field :start %></td>
+      <th><%= f.label :start ,"開始日" %></th>
+      <td><%= f.date_field :start, value:@user.start %></td>
     </tr>
 
     <tr>
-      <th><%= f.label :finish_time ,"終了日" %></th>
-      <td><%= f.date_field :finish %></td>
+      <th><%= f.label :finish ,"終了日" %></th>
+      <td><%= f.date_field :finish, value:@user.finish %></td>
     </tr>
 
     <tr>
