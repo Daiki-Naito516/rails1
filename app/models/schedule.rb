@@ -1,5 +1,6 @@
 class Schedule < ApplicationRecord
 validate :start_end_check
+validates :title, presence: true
 
     def start_end_check
       if self.finish < self.start
