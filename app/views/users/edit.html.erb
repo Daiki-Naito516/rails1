@@ -1,5 +1,7 @@
 <h3>ユーザー編集</h3>
 
+<%= render "shared/error", obj: @user %>
+
  
 <%= form_with scope: @user, url: edit_user_path do |f| %>
 <table>

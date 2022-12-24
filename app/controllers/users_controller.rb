@@ -9,13 +9,21 @@ class UsersController < ApplicationController
   
   def create
     @user = Schedule.new (params.permit(:title, :start, :finish, :all_day, :content))
+    # binding.irb
     if @user.save
+      
       flash[:notice] = "スケジュールを登録しました"
       redirect_to :users
     else
-      render "new"
+      render :new, status: :unprocessable_entity
     end
   end
+  
+  # private
+  
+  # def create_params
+  #   params.require(:schedules).permit(:commit)
+  # end
   
   def show
     @user = Schedule.find(params[:id])
@@ -27,7 +35,7 @@ class UsersController < ApplicationController
   
   def update
     @user = Schedule.find(params[:id])
-    if @user.update (params.require(:user).permit(:title, :start, :finish, :all_day, :content))
+    if @user.update (params.require(:schedule).permit(:title, :start, :finish, :all_day, :content))
       flash[:notice] = "ユーザーIDが「#{@user.id}」の情報を更新しました"
        redirect_to :users
     else
